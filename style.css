@@ -1,0 +1,185 @@
+/*
+You've been provided with some raw HTML for the homepage of an imaginary community college, 
+plus some CSS that styles the page into a three column layout and provides some other rudimentary styling. 
+You're to write your CSS additions below the comment at the bottom of the CSS file to make sure it's easy to mark the bits you've done.
+ Don't worry if some of the selectors are repetitious; we'll let you off in this instance.
+*/
+/* WRITE YOUR CODE BELOW HERE */
+
+* {
+    box-sizing: border-box;
+}
+  
+body {
+  margin: 0 auto;
+  min-width: 1000px;
+  max-width: 1400px;
+  line-height: 2.1rem; /*Give your body text a suitable line-height.*/
+  letter-spacing: 0.1rem;
+  word-spacing: 0.2rem; /*Give your body text some letter-spacing and word-spacing, as appropriate.*/
+}
+  
+/* Layout */
+section {
+  float: left;
+  width: 50%;
+}
+
+aside {
+  float: left;
+  width: 30%;
+}
+
+/*Links:*/
+a{
+  outline: none; /*Remove the default focus outline from ALL the links on the page.*/
+  text-decoration:underline;
+  color: #a66; /*Give the link, visited, focus, and hover states some colors that go with the color of the horizontal bars at the top and bottom of the page.*/
+}
+
+a[href^="#"]:after { /*Make it so that external links have the external link icon inserted next to them.*/
+  content: "";
+  display: inline-block;
+  vertical-align: text-bottom;
+  width: 1em;
+  height: 1em;
+  margin: 0 .2em;
+  background-size: contain;
+  background-image: url("assets/external-link-52.png");
+}
+a[href^="https"]:after {
+  content: "";
+  display: inline-block;
+  vertical-align: text-bottom;
+  width: 1em;
+  height: 1em;
+  margin: 0 .2em;
+  background-size: contain;
+  background-image: url("assets/external-link-52.png");
+}
+
+a:hover{ /*Make it so that links are underlined by default, but when you hover or focus them the underline disappears.*/
+  text-decoration:none;
+  color: #a66; 
+}
+
+a:focus{
+  text-decoration:none;
+  color: #a66;
+}
+a:active{ /*Give the active state a noticeably different styling so it stands out nicely, but make it still fit in with the overall page design.*/
+  color: white; 
+  background-color: black;
+}
+
+/*Navigation*/
+/*You don't necessarily have to make the nav menu look like buttons, 
+but it needs to be a bit taller so that it doesn't look silly on the side of the page; 
+also remember that you need to make this one a vertical nav menu.*/
+
+nav {
+  float: left;
+  width: 19%;
+}
+nav a {
+  outline: none;
+  padding: 10px;
+  line-height: 6.9;
+  font-weight: 792;
+  border-style: solid;
+  background-color: whitesmoke; 
+}
+
+nav a:visited {
+  color: #a66;
+}
+
+nav a:focus { 
+  border: 1px #a66;
+}
+
+nav a:hover {
+  text-decoration:none;
+}
+
+nav a:active {
+  border: 1px active #a66;
+}
+/* ***** */
+
+footer {
+  clear: both;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /*Center your top level heading on the page.*/
+  letter-spacing: .2rem;/*Give your headings a little bit of letter-spacing to make them not too squashed, and allow the letters to breathe a bit.*/
+}
+
+header, section, aside, nav, footer {
+  padding: 20px;
+  font-size: 1.25rem; /*Give your headings and other element types appropriate font-sizes defined using a suitable relative unit.*/
+}
+
+section h2 + p{ /*direct sibling combinator --> affects the direct sibling of h2 (first paragraph selector)*/
+text-indent: 20px; /*Give the first paragraph after each heading in the <section> a little bit of text-indentation, say 20px.*/
+}
+
+/* header and footer */
+header, footer {
+  border-top: 5px solid #a66;
+  border-bottom: 5px solid #a66;
+}
+
+/*Lists:*/
+ul li{
+  line-height: 2.1rem; /*Make sure the spacing of your lists and list items works well with the styling of the overall page. Each list item should have the same line-height as a paragraph line, and each list should have the same spacing at its top and bottom as you have between paragraphs.*/
+/*Give your list items a nice bullet appropriate for the design of the page. It is up to you whether you choose a custom bullet image or something else.*/
+}
+ul li::marker {
+  content: "▶";
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 10px; /*Give the page a site-wide font-size of 10px.*/
+}  
+
+/*
+Fonts:
+First of all, download a couple of free-to-use fonts. Because this is a college, 
+the fonts should be chosen to give the page a fairly serious, formal, trustworthy feel: 
+> Use a suitable service to generate bulletproof @font-face code for these two fonts.
+> Apply your body font to the whole page, 
+>and your heading font to your headings.
+*/
+
+/*i.) /* a serif site-wide font for the general body text */
+@font-face {
+    font-family: 'open_sansregular';
+	  font-weight: 149;
+    src: url('Assets/open-sans.regular.ttf') format('truetype');
+}
+body{
+    font-family: 'open_sansregular', sans-serif;
+	margin-top: 0; 
+	text-align: justify;
+}
+/*coupled with a sans-serif or slab serif for the headings might be nice.*/
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: 500;
+  src: url('Assets/PTSerif-Bold.ttf') format('truetype');
+}
+h2{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 3rem;
+}
+h1{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 4rem;
+} 
+
